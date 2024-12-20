@@ -1,6 +1,6 @@
 package booking;
 
-public enum BookingStatus {
+/*public enum BookingStatus {
     WAITING,
     APPROVED,
     REJECTED,

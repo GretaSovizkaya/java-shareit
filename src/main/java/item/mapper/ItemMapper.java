@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import item.model.Item;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+/*@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ItemMapper {
     public static Item toItem(ItemDto itemDto, long ownerId) {
         return new Item(itemDto.getId(),

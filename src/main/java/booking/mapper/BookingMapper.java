@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import booking.model.Booking;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+/*@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BookingMapper {
     public static BookingDto toBookingDto(Booking booking) {
         return new BookingDto(booking.getStart(),

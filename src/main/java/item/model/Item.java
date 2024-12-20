@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import request.model.ItemRequest;
 
-@Data
+/*@Data
 @AllArgsConstructor
 public class Item {
     private Long id;

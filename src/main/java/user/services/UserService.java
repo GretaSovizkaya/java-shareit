@@ -3,7 +3,7 @@ package user.services;
 import org.springframework.stereotype.Service;
 import user.dto.UserDto;
 
-@Service
+/*@Service
 public interface UserService {
 
     UserDto create(UserDto userDto);

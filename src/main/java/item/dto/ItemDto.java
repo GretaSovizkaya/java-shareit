@@ -6,7 +6,7 @@ import jdk.jfr.BooleanFlag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
+/*@Data
 @AllArgsConstructor
 public class ItemDto {
     private  Long id;

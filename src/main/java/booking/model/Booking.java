@@ -9,7 +9,7 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
-@Data
+/*@Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
 public class Booking {
