@@ -8,7 +8,7 @@ import user.model.User;
 
 import java.util.*;
 
-/*@Repository
+@Repository
 @RequiredArgsConstructor
 public class UserRepositoryImpl implements UserRepository {
     final HashMap<Long, User>   users;

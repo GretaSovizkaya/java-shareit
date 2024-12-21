@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 
-/*@Service
+@Service
 public interface ItemService {
     ItemDto addNewItem(ItemDto item, long ownerId);
 

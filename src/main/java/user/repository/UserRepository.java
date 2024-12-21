@@ -5,7 +5,7 @@ import user.model.User;
 import java.util.Collection;
 import java.util.Optional;
 
-/*public interface UserRepository {
+public interface UserRepository {
     User create(User user);
 
     User update(long id,User updUser);

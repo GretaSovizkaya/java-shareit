@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-/*@Repository
+@Repository
 @RequiredArgsConstructor
 public class ItemRepositoryImpl implements ItemRepository {
     final HashMap<Long, Item> items;

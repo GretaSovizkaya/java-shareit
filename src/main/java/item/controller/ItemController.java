@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 
-/*@Slf4j
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/items")

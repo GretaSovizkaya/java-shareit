@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import user.dto.UserDto;
 import user.model.User;
 
-/*@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserMapper {
     public static UserDto toUserDto(User user) {
         return new UserDto(

@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
 
-/*@Data
+@Data
 @RequiredArgsConstructor
 public class RequestDto {
     final String description;

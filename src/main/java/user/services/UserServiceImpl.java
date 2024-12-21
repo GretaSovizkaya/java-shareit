@@ -10,7 +10,7 @@ import user.model.User;
 import user.repository.UserRepository;
 
 
-/*@Service
+@Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;

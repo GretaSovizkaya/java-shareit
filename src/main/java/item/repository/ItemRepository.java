@@ -5,7 +5,7 @@ import item.model.Item;
 import java.util.Collection;
 import java.util.Optional;
 
-/*public interface ItemRepository {
+public interface ItemRepository {
     Item addNewItem(Item item);
 
     Item updateItem(long itemId, Item updItem);

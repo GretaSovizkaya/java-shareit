@@ -11,7 +11,7 @@ import user.repository.UserRepository;
 import java.util.Collection;
 import java.util.Collections;
 
-/*@Service
+@Service
 @RequiredArgsConstructor
 public class ItemServiceImpl implements ItemService {
     private final ItemRepository itemRepository;

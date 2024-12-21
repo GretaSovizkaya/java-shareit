@@ -3,7 +3,7 @@ package user.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-/*@Data
+@Data
 @AllArgsConstructor
 public class User {
     private Long id;

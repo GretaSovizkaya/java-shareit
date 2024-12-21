@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import user.dto.UserDto;
 import user.services.UserService;
 
-/*@Slf4j
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/users")
