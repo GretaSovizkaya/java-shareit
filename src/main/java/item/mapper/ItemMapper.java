@@ -10,7 +10,7 @@ import org.mapstruct.factory.Mappers;
 public interface ItemMapper {
     ItemMapper INSTANCE = Mappers.getMapper(ItemMapper.class);
 
-    @Mapping(target = "requestId", source = "request.id")
+    @Mapping(target = "request", source = "request.id")
     ItemDto toItemDto(Item item);
 
     @Mapping(target = "id", ignore = true)

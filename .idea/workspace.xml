@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38efb84c-ef28-4f1a-84fc-23f9be85f4dd" name="Changes" comment="'commit again'">
+    <list default="true" id="38efb84c-ef28-4f1a-84fc-23f9be85f4dd" name="Changes" comment="&quot;внесены правки&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/booking/BookingStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/booking/model/BookingStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/booking/dto/BookingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/booking/dto/BookingDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/booking/mapper/BookingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/booking/mapper/BookingMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/booking/model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/booking/model/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/ErrorResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/item/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/item/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/item/dto/ItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/item/dto/ItemDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/item/mapper/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/item/mapper/ItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/item/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/item/model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/request/dto/RequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/request/dto/RequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/request/mapper/RequestMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/request/mapper/RequestMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/request/model/ItemRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/request/model/ItemRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/item/services/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/item/services/ItemServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/user/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/services/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,11 +123,20 @@
       <option name="project" value="LOCAL" />
       <updated>1734766628766</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="&quot;внесены правки&quot;">
+      <option name="closed" value="true" />
+      <created>1734896086328</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734896086328</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="'commit again'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'commit again'" />
+    <MESSAGE value="&quot;внесены правки&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;внесены правки&quot;" />
   </component>
 </project>

@@ -25,7 +25,7 @@ import java.util.Collection;
 @RequestMapping("/items")
 public class ItemController {
     private final ItemService service;
-    private static String userParamHeader = "X-Sharer-User-Id";
+    private static final String userParamHeader = "X-Sharer-User-Id";
 
     @GetMapping("/{id}")
     public ResponseEntity<ItemDto> get(@PathVariable Long id) {
