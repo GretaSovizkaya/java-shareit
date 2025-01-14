@@ -5,13 +5,14 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
-public class RequestDto {
+public class ItemRequestDto {
     String description;
     Long requestor;
-    LocalDate created;
+    LocalDateTime created;
 }
+
