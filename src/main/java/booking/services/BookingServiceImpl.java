@@ -29,7 +29,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-//@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BookingServiceImpl implements BookingService {
     BookingRepository bookingRepository;
     ItemRepository itemRepository;

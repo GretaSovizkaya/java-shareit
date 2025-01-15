@@ -31,9 +31,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/*@Service
+@Service
 @RequiredArgsConstructor
-//@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ItemServiceImpl implements ItemService {
     ItemRepository itemRepository;
     UserRepository userRepository;
