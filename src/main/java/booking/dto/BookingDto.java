@@ -1,14 +1,26 @@
 package booking.dto;
 
-import booking.BookingStatus;
+import booking.model.BookingStatus;
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+@Builder
 @Data
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class BookingDto {
-    final LocalDate start;
-    final LocalDate end;
-    final long item;
-    final BookingStatus status;
+     Long id;
+     @FutureOrPresent
+     LocalDateTime start;
+     @FutureOrPresent
+     LocalDateTime end;
+     @NotNull
+     Long itemId;
+     Long booker;
+     BookingStatus status;
 }

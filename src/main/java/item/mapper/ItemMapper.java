@@ -1,28 +1,23 @@
 package item.mapper;
 
+import booking.mapper.BookingMapper;
 import item.dto.ItemDto;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 import item.model.Item;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ItemMapper {
-    public static Item toItem(ItemDto itemDto, long ownerId) {
-        return new Item(itemDto.getId(),
-                ownerId,
-                itemDto.getName(),
-                itemDto.getDescription(),
-                itemDto.getAvailable(),
-                null);
-    }
+@Mapper(componentModel = "spring", uses = {BookingMapper.class})
+public interface ItemMapper {
+    ItemMapper INSTANCE = Mappers.getMapper(ItemMapper.class);
 
+    @Mapping(target = "request", source = "request")
+    @Mapping(target = "lastBooking", ignore = true) // lastBooking и nextBooking добавляются в сервисе
+    @Mapping(target = "nextBooking", ignore = true)
+    @Mapping(target = "comments", ignore = true) // Comments добавляются в сервисе
+    ItemDto toItemDto(Item item);
 
-    public static ItemDto toItemDto(Item item) {
-        return new ItemDto(item.getId(),
-                item.getName(),
-                item.getDescription(),
-                item.getAvailable(),
-                item.getRequest() != null ? item.getRequest().getId() : null);
-    }
-
+    @Mapping(target = "owner", ignore = true) // owner связывается в сервисе
+    @Mapping(target = "request", ignore = true) // request связывается в сервисе
+    Item toItem(ItemDto itemDto);
 }

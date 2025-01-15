@@ -7,8 +7,8 @@ import java.time.LocalDate;
 
 @Data
 @RequiredArgsConstructor
-public class RequestDto {
-    final String description;
-    final long requestor;
-    final LocalDate created;
+public class ItemRequestDto {
+    String description;
+    long requestor;
+    LocalDate created;
 }

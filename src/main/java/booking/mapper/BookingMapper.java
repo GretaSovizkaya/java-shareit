@@ -1,17 +1,28 @@
 package booking.mapper;
 
 import booking.dto.BookingDto;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import booking.dto.OutputBookingDto;
 import booking.model.Booking;
+import item.mapper.ItemMapper;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
+import user.mapper.UserMapper;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class BookingMapper {
-    public static BookingDto toBookingDto(Booking booking) {
-        return new BookingDto(booking.getStart(),
-                booking.getEnd(),
-                booking.getItem(),
-                booking.getStatus());
+@Mapper(componentModel = "spring", uses = {UserMapper.class, ItemMapper.class})
+public interface BookingMapper {
 
-    }
+    BookingMapper INSTANCE = Mappers.getMapper(BookingMapper.class);
+
+    @Mapping(target = "itemId", source = "item.id")
+    @Mapping(target = "booker", source = "booker.id")
+    BookingDto toBookingDto(Booking booking);
+
+    @Mapping(target = "item.id", source = "itemId")
+    @Mapping(target = "booker.id", source = "booker")
+    Booking toBooking(BookingDto bookingDto);
+
+    @Mapping(target = "item", source = "item")
+    @Mapping(target = "booker", source = "booker")
+    OutputBookingDto toOutputBookingDto(Booking booking);
 }

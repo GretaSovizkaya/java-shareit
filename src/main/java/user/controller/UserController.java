@@ -3,16 +3,12 @@ package user.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import user.dto.UserDto;
 import user.services.UserService;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -21,31 +17,30 @@ import user.services.UserService;
 public class UserController {
     private final UserService service;
 
-
     @GetMapping("/{id}")
-    public UserDto get(@PathVariable long id) {
+    public ResponseEntity<UserDto> get(@PathVariable Long id) {
         log.info("Запрос User по id: {}", id);
-        UserDto userDto = service.findById(id);
-        return userDto;
+        return ResponseEntity.ok(service.findById(id));
     }
 
-    @PostMapping()
-    public UserDto create(@RequestBody @Valid UserDto userDto) {
-        log.info("==>Создание User: {}", userDto);
-        UserDto newUserDto = service.create(userDto);
-        return newUserDto;
+    @PostMapping
+    public ResponseEntity<UserDto> create(@RequestBody @Valid UserDto userDto) {
+        log.info("Создание User: {}", userDto);
+        return ResponseEntity.status(201).body(service.create(userDto));
     }
 
     @PatchMapping("/{id}")
-    public UserDto update(@PathVariable long id, @RequestBody UserDto userDto) {
-        log.info("==>Обновление User: {}", userDto);
-        UserDto userUpdDto = service.update(id, userDto);
-        return userUpdDto;
+    public ResponseEntity<UserDto> update(@PathVariable Long id,
+                                          @RequestBody UserDto userDto) {
+        log.info("Обновление User: {}", userDto);
+        userDto.setId(id);
+        return ResponseEntity.ok(service.update(userDto));
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable long id) {
-        log.info("==>Удаление User по: {}", id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        log.info("Удаление User по id: {}", id);
         service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

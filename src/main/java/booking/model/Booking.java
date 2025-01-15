@@ -1,23 +1,43 @@
 package booking.model;
 
-import booking.BookingStatus;
+import item.model.Item;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import user.model.User;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@RequiredArgsConstructor
+@Entity
+@Table(name = "bookings")
 public class Booking {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+
     @FutureOrPresent
-    final LocalDate start;
+    @Column(name = "start_date")
+    LocalDateTime start;
+
     @FutureOrPresent
-    final LocalDate end;
-    final long booker;
-    final long item;
-    final BookingStatus status;
+    @Column(name = "end_date")
+    LocalDateTime end;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "booker_id")
+    User booker;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id")
+    Item item;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    BookingStatus status;
 }
