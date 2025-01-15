@@ -11,7 +11,9 @@ import exceptions.ValidatetionConflict;
 import exceptions.ValidationException;
 import item.model.Item;
 import item.repository.ItemRepository;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,13 +29,14 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+//@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BookingServiceImpl implements BookingService {
-    private final BookingRepository bookingRepository;
-    private final ItemRepository itemRepository;
-    private final UserRepository userRepository;
-    private final UserService userService;
-    private final UserMapper userMapper;
-    private final BookingMapper bookingMapper;
+    BookingRepository bookingRepository;
+    ItemRepository itemRepository;
+    UserRepository userRepository;
+    UserService userService;
+    UserMapper userMapper;
+    BookingMapper bookingMapper;
     private static final Sort NEWEST_FIRST = Sort.by(Sort.Direction.DESC, "start");
 
     @Override

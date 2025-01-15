@@ -16,7 +16,9 @@ import item.model.Comment;
 import item.model.Item;
 import item.repository.CommentRepository;
 import item.repository.ItemRepository;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,15 +31,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-@Service
+/*@Service
 @RequiredArgsConstructor
+//@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ItemServiceImpl implements ItemService {
-    private final ItemRepository itemRepository;
-    private final UserRepository userRepository;
-    private final BookingRepository bookingRepository;
-    private final CommentRepository commentRepository;
-    private final ItemMapper itemMapper;
-    private final CommentMapper commentMapper;
+    ItemRepository itemRepository;
+    UserRepository userRepository;
+    BookingRepository bookingRepository;
+    CommentRepository commentRepository;
+    ItemMapper itemMapper;
+    CommentMapper commentMapper;
 
     @Override
     @Transactional

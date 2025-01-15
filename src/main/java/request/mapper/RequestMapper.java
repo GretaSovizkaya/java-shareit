@@ -12,7 +12,7 @@ public interface RequestMapper {
     @Mapping(target = "created", expression = "java(itemRequest.getCreated().toLocalDate())")
     ItemRequestDto toItemRequestDto(ItemRequest itemRequest);
 
-    @Mapping(target = "requestor", ignore = true) // Связь с User устанавливается в сервисе
-    @Mapping(target = "id", ignore = true) // ID создается автоматически
+    @Mapping(target = "requestor", ignore = true)
+    @Mapping(target = "id", ignore = true)
     ItemRequest toItemRequest(ItemRequestDto itemRequestDto);
 }
