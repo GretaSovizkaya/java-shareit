@@ -30,11 +30,14 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BookingServiceImpl implements BookingService {
-    private final BookingRepository bookingRepository;
-    private final ItemRepository itemRepository;
-    private final UserRepository userRepository;
-    private final UserService userService;
+    BookingRepository bookingRepository;
+    ItemRepository itemRepository;
+    UserRepository userRepository;
+    UserService userService;
+    UserMapper userMapper;
+    BookingMapper bookingMapper;
 
     private static final Sort NEWEST_FIRST = Sort.by(Sort.Direction.DESC, "start");
 
@@ -48,7 +51,7 @@ public class BookingServiceImpl implements BookingService {
     @Override
     @Transactional
     public OutputBookingDto create(BookingDto bookingDto, long bookerId) {
-        User booker = UserMapper.toUser(userService.findById(bookerId));
+        User booker = userMapper.toUser(userService.findById(bookerId));
         bookingDto.setBooker(booker.getId());
         Item item = getItem(bookingDto.getItemId());
 
@@ -75,7 +78,8 @@ public class BookingServiceImpl implements BookingService {
                 .booker(booker)
                 .status(BookingStatus.WAITING)
                 .build();
-        return BookingMapper.toOutputBookingDto(bookingRepository.save(booking));
+
+        return bookingMapper.toOutputBookingDto(bookingRepository.save(booking));
     }
 
     @Override
@@ -96,7 +100,7 @@ public class BookingServiceImpl implements BookingService {
         } else {
             throw new ValidationException("Booking в статусе {}" + booking.getStatus());
         }
-        return BookingMapper.toOutputBookingDto(bookingRepository.save(booking));
+        return bookingMapper.toOutputBookingDto(bookingRepository.save(booking));
     }
 
     @Override
@@ -106,7 +110,7 @@ public class BookingServiceImpl implements BookingService {
         OutputBookingDto bookingDto;
         Item item = getItem(booking.getItem().getId());
         if (item.getOwner().getId().equals(userId) || booking.getBooker().getId().equals(userId)) {
-            bookingDto = BookingMapper.toOutputBookingDto(booking);
+            bookingDto = bookingMapper.toOutputBookingDto(booking);
         } else {
             throw new ValidationException("Booking  доступен только Owner и Booker");
         }
@@ -146,7 +150,7 @@ public class BookingServiceImpl implements BookingService {
         }
 
         return listBooking.stream()
-                .map(BookingMapper::toOutputBookingDto)
+                .map(bookingMapper::toOutputBookingDto)
                 .toList();
     }
 
@@ -179,7 +183,7 @@ public class BookingServiceImpl implements BookingService {
                 break;
         }
         return listBooking.stream()
-                .map(BookingMapper::toOutputBookingDto)
+                .map(bookingMapper::toOutputBookingDto)
                 .toList();
     }
 

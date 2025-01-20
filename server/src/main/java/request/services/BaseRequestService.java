@@ -1,10 +1,13 @@
 package request.services;
 
+import booking.mapper.BookingMapper;
 import exceptions.NotFoundException;
 import item.mapper.ItemMapper;
 import item.model.Item;
 import item.repository.ItemRepository;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import request.dto.ItemRequestDto;
@@ -25,10 +28,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 @Slf4j
+@FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 public class BaseRequestService implements ItemRequestService {
-    private final ItemRequestRepository itemRequestRepository;
-    private final UserRepository userRepository;
-    private final ItemRepository itemRepository;
+    ItemRequestRepository itemRequestRepository;
+    UserRepository userRepository;
+    ItemRepository itemRepository;
+    ItemMapper itemMapper;
+    BookingMapper bookingMapper;
+    RequestMapper requestMapper;
 
     @Override
     public List<ItemRequestInfoDto> findAllByUserId(Long userId) {
@@ -41,8 +48,8 @@ public class BaseRequestService implements ItemRequestService {
 
         return itemRequests.stream()
                 .map(itemRequest -> {
-                    ItemRequestInfoDto itemRequestInfoDto = RequestMapper.toItemRequestDto(itemRequest);
-                    itemRequestInfoDto.setItems(ItemMapper.toItemsDtoForRequest(itemsByRequestId.getOrDefault(itemRequest.getId(), Collections.emptyList())));
+                    ItemRequestInfoDto itemRequestInfoDto = requestMapper.toItemRequestDto(itemRequest);
+                    itemRequestInfoDto.setItems(itemMapper.toItemsDtoForRequest(itemsByRequestId.getOrDefault(itemRequest.getId(), Collections.emptyList())));
                     return itemRequestInfoDto;
                 })
                 .collect(Collectors.toList());
@@ -63,7 +70,7 @@ public class BaseRequestService implements ItemRequestService {
                         .build()
         );
         log.info("Запрос создан");
-        return RequestMapper.toItemRequestDto(itemRequest);
+        return requestMapper.toItemRequestDto(itemRequest);
     }
 
     @Override
@@ -72,8 +79,8 @@ public class BaseRequestService implements ItemRequestService {
                 .orElseThrow(() -> new NotFoundException(String.format("Request с id = %d не найден.", itemRequestId)));
 
         List<Item> items = itemRepository.findAllByItemRequest(itemRequest);
-        ItemRequestInfoDto itemRequestInfoDto = RequestMapper.toItemRequestDto(itemRequest);
-        itemRequestInfoDto.setItems(ItemMapper.toItemsDtoForRequest(items));
+        ItemRequestInfoDto itemRequestInfoDto = requestMapper.toItemRequestDto(itemRequest);
+        itemRequestInfoDto.setItems(itemMapper.toItemsDtoForRequest(items));
         return itemRequestInfoDto;
     }
 
@@ -88,8 +95,8 @@ public class BaseRequestService implements ItemRequestService {
 
         return itemRequests.stream()
                 .map(itemRequest -> {
-                    ItemRequestInfoDto itemRequestInfoDto = RequestMapper.toItemRequestDto(itemRequest);
-                    itemRequestInfoDto.setItems(ItemMapper.toItemsDtoForRequest(itemsByRequestId.getOrDefault(itemRequest.getId(), Collections.emptyList())));
+                    ItemRequestInfoDto itemRequestInfoDto = requestMapper.toItemRequestDto(itemRequest);
+                    itemRequestInfoDto.setItems(itemMapper.toItemsDtoForRequest(itemsByRequestId.getOrDefault(itemRequest.getId(), Collections.emptyList())));
                     return itemRequestInfoDto;
                 })
                 .collect(Collectors.toList());

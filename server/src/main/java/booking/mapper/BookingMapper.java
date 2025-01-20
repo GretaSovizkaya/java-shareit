@@ -1,31 +1,25 @@
 package booking.mapper;
 
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 import booking.dto.BookingDto;
 import booking.dto.OutputBookingDto;
 import booking.model.Booking;
 import item.mapper.ItemMapper;
 import user.mapper.UserMapper;
 
-public class BookingMapper {
-    public static BookingDto toBookingDto(Booking booking) {
-        return BookingDto.builder()
-                .start(booking.getStart())
-                .end(booking.getEnd())
-                .itemId(booking.getItem().getId())
-                .booker(booking.getBooker().getId())
-                .status(booking.getStatus())
-                .build();
+@Mapper
+public interface BookingMapper {
+    BookingMapper INSTANCE = Mappers.getMapper(BookingMapper.class);
 
-    }
+    // Преобразуем Booking в BookingDto
+    @Mapping(target = "itemId", source = "item.id")  // Маппим itemId из объекта Item
+    @Mapping(target = "booker", source = "booker.id")  // Маппим booker из объекта User
+    BookingDto toBookingDto(Booking booking);
 
-    public static OutputBookingDto toOutputBookingDto(Booking booking) {
-        return OutputBookingDto.builder()
-                .id(booking.getId())
-                .booker(UserMapper.toUserDto(booking.getBooker()))
-                .start(booking.getStart())
-                .end(booking.getEnd())
-                .item(ItemMapper.toItemDto(booking.getItem()))
-                .status(booking.getStatus())
-                .build();
-    }
+    // Преобразуем Booking в OutputBookingDto
+    @Mapping(target = "item", source = "item")  // Маппим объект Item в ItemDto
+    @Mapping(target = "booker", source = "booker")  // Маппим объект User в UserDto
+    OutputBookingDto toOutputBookingDto(Booking booking);
 }

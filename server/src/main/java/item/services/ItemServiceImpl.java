@@ -35,12 +35,16 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 public class ItemServiceImpl implements  ItemService {
-    private final ItemRepository itemRepository;
-    private final UserRepository userRepository;
-    private final BookingRepository bookingRepository;
-    private final CommentRepository commentRepository;
-    private final ItemRequestRepository itemRequestRepository;
+    ItemRepository itemRepository;
+    UserRepository userRepository;
+    BookingRepository bookingRepository;
+    CommentRepository commentRepository;
+    ItemRequestRepository itemRequestRepository;
+    ItemMapper itemMapper;
+    BookingMapper bookingMapper;
+    CommentMapper commentMapper;
 
 
     @Override
@@ -48,14 +52,14 @@ public class ItemServiceImpl implements  ItemService {
     public ItemDto create(ItemDto newItemDto, long ownerId) {
         User owner = getUser(ownerId);
 
-        Item item = ItemMapper.toItem(newItemDto);
+        Item item = itemMapper.toItem(newItemDto);
         item.setOwner(owner);
 
         if (newItemDto.getRequestId() != null) {
             item.setItemRequest(getRequest(newItemDto.getRequestId()));
         }
 
-        return ItemMapper.toItemDto(itemRepository.save(item));
+        return itemMapper.toItemDto(itemRepository.save(item));
     }
 
     @Override
@@ -76,7 +80,7 @@ public class ItemServiceImpl implements  ItemService {
         if (itemUpd.getAvailable() != null) {
             oldItem.setAvailable(itemUpd.getAvailable());
         }
-        return ItemMapper.toItemDto(itemRepository.save(itemRepository.save(oldItem)));
+        return itemMapper.toItemDto(itemRepository.save(itemRepository.save(oldItem)));
     }
 
     @Override
@@ -89,13 +93,13 @@ public class ItemServiceImpl implements  ItemService {
     @Transactional(readOnly = true)
     public ItemDto findById(long itemId, long userId) {
         Item item = getItem(itemId);
-        ItemDto itemDto = ItemMapper.toItemDto(item);
+        ItemDto itemDto = itemMapper.toItemDto(item);
 
         if (item.getOwner().getId().equals(userId)) {
             setLastNextBooking(itemDto);
         }
         List<CommentDto> comments = commentRepository.findByItem(item).stream()
-                .map(CommentMapper::toCommentDto).toList();
+                .map(commentMapper::toCommentDto).toList();
         itemDto.setComments(comments);
         return itemDto;
     }
@@ -113,7 +117,7 @@ public class ItemServiceImpl implements  ItemService {
 
             setLastNextBooking(iDto);
             List<CommentDto> comments = commentRepository.findByItem(getItem(iDto.getId())).stream()
-                    .map(CommentMapper::toCommentDto).toList();
+                    .map(commentMapper::toCommentDto).toList();
             iDto.setComments(comments);
         }
         return itemsDto;
@@ -148,7 +152,7 @@ public class ItemServiceImpl implements  ItemService {
                 .created(LocalDateTime.now())
                 .build();
 
-        return CommentMapper.toCommentDto(commentRepository.save(comment));
+        return commentMapper.toCommentDto(commentRepository.save(comment));
     }
 
     private void setLastNextBooking(ItemDto itemDto) {
@@ -161,10 +165,10 @@ public class ItemServiceImpl implements  ItemService {
                 .filter(b -> b.getStart().isAfter(toDay))
                 .min(Comparator.comparing(Booking::getStart)).orElse(null);
         if (lastBooking != null) {
-            itemDto.setLastBooking(BookingMapper.toBookingDto(lastBooking));
+            itemDto.setLastBooking(bookingMapper.toBookingDto(lastBooking));
         }
         if (nextBooking != null) {
-            itemDto.setNextBooking(BookingMapper.toBookingDto(nextBooking));
+            itemDto.setNextBooking(bookingMapper.toBookingDto(nextBooking));
         }
     }
 

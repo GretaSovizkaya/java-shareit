@@ -54,7 +54,7 @@ public class BaseUserService implements UserService {
     @Transactional(readOnly = true)
     public List<UserDto> getAll() {
         return userRepository.findAll().stream()
-                .map(UserMapper::toUserDto)
+                .map(userMapper::toUserDto)
                 .collect(Collectors.toList());
     }
 
