@@ -12,10 +12,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface RequestMapper {
-
-    // Преобразуем List<ItemRequest> в List<ItemRequestInfoDto>
     List<ItemRequestInfoDto> toItemRequestDtoList(List<ItemRequest> itemRequests);
-
-    // Преобразуем ItemRequest в ItemRequestInfoDto
     ItemRequestInfoDto toItemRequestDto(ItemRequest itemRequest);
 }

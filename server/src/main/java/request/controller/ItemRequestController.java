@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/requests")
 public class ItemRequestController {
-    static final String userParmHeader = "X-Sharer-User-Id";
+    static final String userParmHeader = "X-Sharer-User-Id"; //аналогично как и в ItemController - переменная константа
     private final ItemRequestService itemRequestService;
 
     @PostMapping

@@ -39,7 +39,7 @@ public class BookingServiceImpl implements BookingService {
     UserMapper userMapper;
     BookingMapper bookingMapper;
 
-    private static final Sort NEWEST_FIRST = Sort.by(Sort.Direction.DESC, "start");
+    static Sort NEWEST_FIRST = Sort.by(Sort.Direction.DESC, "start");
 
     @Override
     @Transactional

@@ -1,7 +1,9 @@
 package user.controller;
 
 import jakarta.validation.Valid;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +14,9 @@ import user.services.UserService;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/users")
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserController {
-    private final UserService service;
+    UserService service;
 
     @GetMapping("/{id}")
     public UserDto get(@PathVariable Long id) {

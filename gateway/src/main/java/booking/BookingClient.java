@@ -6,6 +6,8 @@ import booking.dto.BookItemRequestDto;
 import booking.dto.BookingDto;
 import booking.dto.BookingState;
 import client.BaseClient;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -14,14 +16,10 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
-import static java.nio.file.Paths.get;
-import static org.springframework.http.RequestEntity.patch;
-import static org.springframework.http.RequestEntity.post;
-
-
 @Service
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BookingClient extends BaseClient {
-    private static final String API_PREFIX = "/bookings";
+    static String API_PREFIX = "/bookings";
 
     @Autowired
     public BookingClient(@Value("${shareit-server.url}") String serverUrl, RestTemplateBuilder builder) {

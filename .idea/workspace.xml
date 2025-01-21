@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38efb84c-ef28-4f1a-84fc-23f9be85f4dd" name="Changes" comment="&quot;final tt 16 &quot;">
-      <change afterPath="$PROJECT_DIR$/gateway/src/main/java/booking/model/BookingStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/exceptions/ErrorHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/exceptions/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/exceptions/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/exceptions/ValidatetionConflict.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/exceptions/ValidationException.java" afterDir="false" />
+    <list default="true" id="38efb84c-ef28-4f1a-84fc-23f9be85f4dd" name="Changes" comment="&quot;tt 16 &quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/booking/mapper/BookingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/booking/mapper/BookingMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/booking/BookingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/booking/BookingClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/booking/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/booking/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/item/ItemClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/item/ItemClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/item/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/item/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/booking/services/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/booking/services/BookingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/item/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/item/mapper/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/item/mapper/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/item/mapper/ItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/item/services/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/item/services/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/item/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/item/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/request/controller/ItemRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/request/controller/ItemRequestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/request/mapper/RequestMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/request/mapper/RequestMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/request/services/BaseRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/request/services/BaseRequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/user/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/request/repository/ItemRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/request/repository/ItemRequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/user/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/user/services/BaseUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/user/services/BaseUserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737319339138</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="&quot;tt 16 &quot;">
+      <option name="closed" value="true" />
+      <created>1737386390681</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737386390681</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,7 +252,8 @@
     <MESSAGE value="&quot;внесены правки&quot;" />
     <MESSAGE value="&quot;внесены правки 2&quot;" />
     <MESSAGE value="&quot;final tt 16 &quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;final tt 16 &quot;" />
+    <MESSAGE value="&quot;tt 16 &quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;tt 16 &quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

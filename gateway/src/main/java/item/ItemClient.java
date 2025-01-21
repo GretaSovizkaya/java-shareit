@@ -37,8 +37,9 @@ public class ItemClient extends BaseClient {
     }
 
     public void delete(long itemId) {
-        delete("/" + itemId);
+        super.delete("/" + itemId);
     }
+
 
     public ResponseEntity<Object> getByOwnerId(long ownerId) {
         return get("", ownerId);

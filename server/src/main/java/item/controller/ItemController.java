@@ -4,10 +4,9 @@ import item.dto.CommentDto;
 import item.dto.CommentInfoDto;
 import item.dto.ItemDto;
 import item.services.ItemService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -15,10 +14,11 @@ import java.util.Collection;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@FieldDefaults(makeFinal = true)
 @RequestMapping("/items")
 public class ItemController {
-    private final ItemService service;
-    static final String userParmHeader = "X-Sharer-User-Id";
+    private ItemService service;
+    static final String userParmHeader = "X-Sharer-User-Id"; //компилятор выдает ошибку- переменная д.б. контсантой
 
     @GetMapping("/{id}")
     public ItemDto get(@RequestHeader(userParmHeader) Long userId, @PathVariable Long id) {
